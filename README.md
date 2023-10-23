@@ -1,7 +1,7 @@
 # Engineering Assessment
 
-This python scripts returns the different locations (Addresses and Applicat) that provides the food items that 
-we have provided in the CLI.
+This python scripts returns the different locations (Addresses and Applicant) that provides the food items that 
+we have provided in the CLI as a filter.
 
 For example: 
 
@@ -62,6 +62,10 @@ test/__init__.py               0      0   100%
 test/test_food_truck.py       28      0   100%
 ----------------------------------------------
 TOTAL                         43      0   100%
-
-
 ```
+
+## CI on Github Actions
+For passing the CI of the process, there is a workflow defined to run each time the code is pushed in github.
+
+The definition of the workflows exists in the [repository](.github/workflows/run_test.yml)
+
