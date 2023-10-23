@@ -8,14 +8,20 @@ rows = [
 
 class TestFoodTruck(unittest.TestCase):
     def setUp(self):
+        """
+        Write the testing csv file  used in the test cases
+        """
         with open(test_file, 'w', newline='') as csv_file:
             for row in rows:
                 csv_file.write(row)
     def tearDown(self):
+        """
+        Remove the testing csv file at the end of the tests.
+        """
         os.remove(test_file)
 
     def test_parse_arguments(self):
-        """Check setup"""
+        """Check CLI arguments"""
         parser = parse_arguments()
         res = parser.parse_args(["--food", "drinks", "--csv", "check_csv.csv"])
         self.assertEqual(res.food, ["drinks"])
@@ -29,7 +35,7 @@ class TestFoodTruck(unittest.TestCase):
         self.assertRaises(SystemExit, parser.parse_args)
 
     def test_search_by_food_items_positive(self):
-        "Return the match case thats the example."
+        """Return the match case thats the example."""
         res = search_by_food_items(test_file, ["beverages"])
         self.assertEqual(res, [{"address": "2301 MISSION ST", "applicant": "Leo's Hot Dogs"}])
 
